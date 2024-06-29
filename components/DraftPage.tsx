@@ -34,7 +34,7 @@ const DraftPage = () => {
             <hr className="my-8 w-[90vw]"/>
                 <div>
                     <p>output</p>
-                    <p>user's NFTs</p>
+                    <p>users NFTs</p>
                     {/* <p>{nfts}</p> */}
                 </div>
         </div>
