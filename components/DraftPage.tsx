@@ -24,11 +24,11 @@ const DraftPage = () => {
 
     return (
         <div className=" text-xs w-full flex flex-col justify-center items-center mt-8">
-            <p>{userWalletAddress} = base wallet address</p>
+            <p><span className="bg-blue-500 text-white p-1">{userWalletAddress}</span> = base wallet address</p>
                 <br/>
             <p>contractAddress = (see eth balance & eth value)</p>
                 <br/>
-            <p>0x61b1cAF7d65b10faa1DB2682ca6F0C6855b2981f = contractAddress</p>
+            <p><span className="bg-red-500 text-white p-1">0x61b1cAF7d65b10faa1DB2682ca6F0C6855b2981f</span> = contractAddress</p>
                 <br/>
             <p>issue: figure out to find contract address associated with wallet address</p>
                 <br/>
