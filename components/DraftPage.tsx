@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import fetchNFTs from "@/lib/alchemy";
+import DisplayUserNfts from "./DisplayUserNfts";
 
 const DraftPage = () => {
     
@@ -7,14 +8,19 @@ const DraftPage = () => {
     const userWalletAddress = "0xaA8c465E51347c94E8dec8D564222e29e4F32612";
     const [nfts, setNfts] = useState([]);
 
-    // useEffect((()=>{
-    //     const getNFTs = async () => {
-    //         const fetchedNFTs = await fetchNFTs(userWalletAddress);
-    //         setNfts(fetchedNFTs);
-    //         console.log("nfts:", nfts);
-    //     }
-    //     getNFTs();
-    // }),[])
+    // Get nfts from wallet address
+    useEffect((()=>{
+        const getNFTs = async () => {
+            const fetchedNFTs = await fetchNFTs(userWalletAddress);
+            setNfts(fetchedNFTs);
+        }
+        getNFTs();
+    }),[])
+
+    // Check NFTs Fetched
+    useEffect(() => {
+        console.log("nfts:", nfts);
+    }, [nfts]);
 
     return (
         <div className=" text-xs w-full flex flex-col justify-center items-center mt-20">
@@ -35,7 +41,17 @@ const DraftPage = () => {
                 <div>
                     <p>output</p>
                     <p>users NFTs</p>
-                    {/* <p>{nfts}</p> */}
+                    <p>nfts.contractAddress = userAddress (can see eth balance & eth value)</p>
+                    <p>{userWalletAddress} = wallet address checking</p>
+                    <p>0x61b1cAF7d65b10faa1DB2682ca6F0C6855b2981f = contractAddress</p>
+                    <br/>
+                    <div className="flex justify-center items-center">
+                        {nfts.length > 0 ?
+                            <DisplayUserNfts nfts={nfts}/>
+                        :
+                            <p>no NFTS ??!!</p>
+                        }
+                    </div>
                 </div>
         </div>
     )
