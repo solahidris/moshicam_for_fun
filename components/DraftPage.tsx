@@ -10,9 +10,10 @@ import fetchProfile from "@/lib/fetchUserProfile";
 
 import { Label } from "./ui/label";
 import UserEarnings from "./UserEarnings";
-import { Copy } from "lucide-react";
+import { Copy, Loader2Icon } from "lucide-react";
 import copyToClipboard from "@/lib/copyToClipboard";
 import { Button } from "./ui/button";
+import UserNftToggle from "./UserNftToggle";
 
 interface Profile {
     balanceInEth: number;
@@ -26,12 +27,15 @@ const DraftPage = () => {
     const [nfts, setNfts] = useState([]);
     const [profile, setProfile] = useState<Profile | null>(null);
     const [showCreatedNft, setShowCreatedNft] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     
     const handleSearchButton = async () => {
+        setIsLoading(true);
         const fetchedNfts = await fetchNFTs(userWalletAddress);
         const fetchedProfile = await fetchProfile(userContractAddress);
         setNfts(fetchedNfts);
         setProfile(fetchedProfile);
+        setIsLoading(false);
     }
 
     return (
@@ -39,7 +43,7 @@ const DraftPage = () => {
             <Card className="lg:w-[600px] p-8 flex flex-col gap-8">
                 <div className="flex flex-col">
                     <Label className="pb-1">Wallet Address</Label>
-                    <Input placeholder="0xaA8c465E51347c94E8dec8D564222e29e4F32612" onChange={(e)=>setUserWalletAddress(e.target.value)}/>
+                    <Input placeholder="0xaA8.....32612" onChange={(e)=>setUserWalletAddress(e.target.value)}/>
                     <div className="flex justify-between mt-2">
                         <div className="flex gap-1 items-center -mt-4">
                             <span>Sample: </span>
@@ -51,15 +55,13 @@ const DraftPage = () => {
                 <UserEarnings profile={profile} />
             </Card>
 
+
             <div className="p-8 flex flex-col gap-10 justify-center items-center">
-                <div className="flex gap-4">
-                    <Button className={`${showCreatedNft ? "bg-black" : "bg-gray-300"}`} onClick={()=>setShowCreatedNft(true)}>Created</Button>
-                    <Button className={`${showCreatedNft ? "bg-gray-300" : "bg-black"}`} onClick={()=>setShowCreatedNft(false)}>Collected</Button>
-                </div>
+                <UserNftToggle showCreatedNft={showCreatedNft} setShowCreatedNft={setShowCreatedNft} />
                 {nfts.length > 0 ?
                     <DisplayUserNfts nfts={nfts} userWalletAddress={userWalletAddress} userContractAddress={userContractAddress} showCreatedNft={showCreatedNft} />
                 :
-                    <p>no NFTS ??!!</p>
+                    isLoading ? <div className="flex flex-col items-center gap-2"><p>Loading NFTs...</p><Loader2Icon className="animate animate-spin" /></div> : <p className="text-center">Enter a wallet address and<br/> click Search</p>
                 }
             </div>
         </div>

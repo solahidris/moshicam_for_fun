@@ -7,7 +7,7 @@ const AppTitle = () => {
             <div className="flex flex-col">
                 <p className="font-semibold text-5xl lg:text-7xl">moshicam</p>
                 <div>
-                    <span className="font-semibold text-sm lg:text-base">unofficial fan build tool</span>
+                    <span className="font-medium text-sm lg:text-base">unofficial fan build tool <a href="https://github.com/solahidris" className="text-blue-500">( by sol )</a></span>
                 </div>
             </div>
             <Image src="/moshi_logo.svg" alt="Moshi Logo" width={100} height={100} className="w-16 lg:w-20 lg:w-20 ml-2"/>
