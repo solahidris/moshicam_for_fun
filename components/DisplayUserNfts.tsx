@@ -29,10 +29,10 @@ const DisplayUserNfts = ({ nfts }: { nfts: any[] }) => {
                         <p>Token ID: {nfts.tokenId}</p>
                         <p>Token URI: <a href={nfts.tokenUri}>{nfts.tokenUri}</a></p>
                         <p>Mint blockNumber: {nfts.mint.blockNumber}</p>
-                        <p>Mint mintAddress: {nfts.mint.mintAddress}</p>
+                        <p>Mint mintAddress:  <span className={`${nfts.contract.address === myContractAddress ? "bg-blue-500" : "bg-green-500"} text-white px-1`}>{nfts.mint.mintAddress}</span></p>
                         <p>Mint transactionHash: {nfts.mint.transactionHash}</p>
                     <br/>
-                        <p>Contract Address: <span className={`${nfts.contract.address === myContractAddress ? "bg-red-500" : "bg-yellow-500"} text-white p-1`}>{nfts.contract.address}</span></p>
+                        <p>Contract Address: <span className={`${nfts.contract.address === myContractAddress ? "bg-red-500" : "bg-yellow-500"} text-white px-1`}>{nfts.contract.address}</span></p>
                         <p>Contract Name: {nfts.contract.name}</p>
                         <p>Contract Symbol: {nfts.contract.symbol}</p>
                         <p>Total Supply: {nfts.contract.totalSupply}</p>
