@@ -23,12 +23,14 @@
     "@radix-ui/react-toast": "^1.1.5",
     "@react-hook/media-query": "^1.1.1",
     "@vercel/analytics": "^1.2.2",
+    "alchemy-sdk": "^3.3.1",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "embla-carousel-react": "^8.0.2",
+    "ethers": "^6.13.1",
     "framer-motion": "^11.1.7",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.378.0",
@@ -41,7 +43,8 @@
     "react-responsive": "^10.0.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "vaul": "^0.9.0"
+    "vaul": "^0.9.0",
+    "web3": "^4.10.0"
   },
   "devDependencies": {
     "@types/node": "^20",
