@@ -9,7 +9,7 @@ export default function Document() {
         {/* <title>HireSolah</title> */}
         <meta property="og:locale" content="en_US" />
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         {/* <meta name="description" content="HireSolah - Websites built by experts just for you. Save cost by communicating directly with the developers to solve your needs. Multiple flexible monthly payment options. Get your stunning website up and running in no time!" /> */}
         {/* <meta name="keywords" content="website, development, experts, monthly payment, flexible, communication, developers" /> */}
         <meta name="author" content="Solah Idris" />
